@@ -1,29 +1,27 @@
-# Agent Handoff: Project Nosh
+# Agent Handoff: Project Nosh (Version 2.0)
 
-## Project Overview
-**Nosh** is a Vibe Coding Platform based on the Vercel Example. It allows users to generate full-stack applications in a sandboxed environment via AI prompts.
+## 🏁 Current Status: DEPLOYED & FUNCTIONAL
+The "Vibe Coding Platform" has been fully transformed into the **Nosh Sales-First Funnel**.
 
-- **GitHub Repository**: [https://github.com/Mwoyoungo/nosh-agent.git](https://github.com/Mwoyoungo/nosh-agent.git)
-- **Primary Tech Stack**: Next.js 16 (App Router + Turbopack), AI SDK v6, Vercel AI Gateway, Vercel Sandbox SDK, Tailwind CSS v4, Zustand.
+- **URL**: [https://nosh-agent.vercel.app](https://nosh-agent.vercel.app)
+- **GitHub**: [https://github.com/Mwoyoungo/nosh-agent.git](https://github.com/Mwoyoungo/nosh-agent.git)
 
-## Current Setup & State
-- **Workspace**: `c:\nosh\vibe-coding-platform`
-- **Dependency Status**: `pnpm install` has been completed. `sharp` and `@tailwindcss/oxide` build scripts have been approved/built.
-- **Environment**: `.env.local` is present with `AI_GATEWAY_API_KEY`.
-- **Git**: Initial commit pushed to `main` branch.
+## 🏗️ Major Implementations
+1. **Sales Pipeline (Consultancy Stage)**
+    - Modified `app/api/chat/prompt.md` to prioritize discovery over building.
+    - New AI Tool: `generateProjectProposal` (`ai/tools/generate-proposal.ts`).
+    - Logical Cost Calculator: `lib/cost-calculator.ts` (Estimates complexity/price/time).
+2. **Premium Conversion UI**
+    - **Proposal Card**: (`components/chat/message-part/project-proposal.tsx`) Renders a professional blueprint in chat with an "Approve" button.
+    - **Decision Modal**: (`components/modals/decision-modal.tsx`) Pops up on approval, forcing a choice between the **AI Sample** (Traditional Vibe Coding) and **Talking to Developer**.
+3. **Critical Stability Fixes**
+    - Removed `botid` and `checkBotId()` from API routes to stop **403 Forbidden** errors.
+    - Fixed `useSharedChatContext` and TypeScript type errors in the message router.
 
-## Internal Health Check
-- **Next.js Dev Server**: Running at `http://localhost:3000`.
-- **AI Chat**: Functional. Communicates with models via AI Gateway.
-- **Critical Limitation**: Sandbox creation (`@vercel/sandbox`) fails locally with:
-  > `Error creating Sandbox: The 'x-vercel-oidc-token' header is missing from the request.`
-  - **Reason**: This header is injected by the Vercel runtime. The platform's core "generation/execution" loop requires a live Vercel deployment to function correctly.
-
-## Instructions for Next Agent
-1. **Immediate Goal**: Connect the GitHub repo to Vercel and deploy.
-2. **Post-Deployment**: Verify that the "x-vercel-oidc-token" issue is resolved in the live environment.
-3. **Feature Work**: Once healthy, begin building user-requested features for the platform (improving the UI, adding multi-sandbox support, or enhanced error monitoring).
-4. **Local Development**: Continue developing UI/components locally, but test sandbox interactions on the deployed branch.
+## 🛠️ Instructions for the Next Agent
+1. **Refine Prototyping Phase**: Ensure the transition from "Modal Approved" back to "Sandbox Building" is seamless.
+2. **WhatsApp/Firebase Integration**: The user wants the "Talk to Developer" button to trigger a real booking/notif via WhatsApp and store leads in Firebase. These integrations are planned but not yet implemented.
+3. **Identity Check**: Always verify the correct hook usage (`useSharedChatContext` from `lib/chat-context.tsx`) and casting `(part as any)` when accessing `data` in `components/chat/message-part/index.tsx`.
 
 ---
-*Ready for handoff. Current state is stable and documented.*
+*Nosh is setup and ready for the next level of feature expansion. The funnel is live.*
