@@ -43,13 +43,13 @@ export default function RootLayout({
           <NuqsAdapter>
             <ChatProvider>
               <ErrorMonitor>{children}</ErrorMonitor>
+              <DecisionModal />
             </ChatProvider>
           </NuqsAdapter>
         </Suspense>
         <Toaster />
         <CommandLogsStream />
         <SandboxState />
-        <DecisionModal />
       </body>
     </html>
   )
