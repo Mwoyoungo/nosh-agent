@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { create } from 'zustand'
 import { Rocket, PhoneCall, Calendar, X, Sparkles, MessageSquare } from 'lucide-react'
-import { useChat } from '@/lib/chat-context'
+import { useSharedChatContext } from '@/lib/chat-context'
 
 interface State {
   open: boolean
@@ -22,7 +22,7 @@ export const useDecisionStore = create<State>((set) => ({
 
 export function DecisionModal() {
   const { open, setOpen, proposal, setProposal } = useDecisionStore()
-  const { append } = useChat()
+  const { chat } = useSharedChatContext()
 
   useEffect(() => {
     const handleTrigger = (e: any) => {
@@ -36,7 +36,7 @@ export function DecisionModal() {
   if (!open) return null
 
   const handleBuildSample = () => {
-    append({
+    chat.append({
       role: 'user',
       content: 'Proposal approved! Please build a functional AI sample of this project now.',
     })
@@ -46,7 +46,7 @@ export function DecisionModal() {
   const handleBookCall = () => {
     // This would eventually trigger the WhatsApp/Booking flow
     // For now, we'll just acknowledge it in chat
-    append({
+    chat.append({
       role: 'user',
       content: 'I want to book a direct call with a developer to discuss this proposal further.',
     })
