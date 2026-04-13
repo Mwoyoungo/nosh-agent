@@ -34,7 +34,7 @@ export const MessagePart = memo(function MessagePart({
   } else if (part.type === 'data-report-errors') {
     return <ReportErrors message={part.data} />
   } else if (part.type === 'data-project-proposal' as any) {
-    return <ProjectProposal message={part.data} />
+    return <ProjectProposal message={(part as any).data} />
   } else if (part.type === 'text') {
     return <Text part={part} />
   }
