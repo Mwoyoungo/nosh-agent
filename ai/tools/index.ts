@@ -5,6 +5,8 @@ import { generateFiles } from './generate-files'
 import { getSandboxURL } from './get-sandbox-url'
 import { runCommand } from './run-command'
 
+import { generateProjectProposal } from './generate-proposal'
+
 interface Params {
   modelId: string
   writer: UIMessageStreamWriter<UIMessage<never, DataPart>>
@@ -16,6 +18,7 @@ export function tools({ modelId, writer }: Params) {
     generateFiles: generateFiles({ writer, modelId }),
     getSandboxURL: getSandboxURL({ writer }),
     runCommand: runCommand({ writer }),
+    generateProjectProposal: generateProjectProposal({ writer }),
   }
 }
 

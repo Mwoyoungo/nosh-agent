@@ -32,6 +32,16 @@ export const dataPartSchema = z.object({
     summary: z.string(),
     paths: z.array(z.string()).optional(),
   }),
+  'project-proposal': z.object({
+    features: z.array(z.object({
+      name: z.string(),
+      description: z.string()
+    })),
+    estimatedCost: z.string(),
+    estimatedTime: z.string(),
+    complexity: z.enum(['low', 'medium', 'high']),
+  }),
 })
+
 
 export type DataPart = z.infer<typeof dataPartSchema>

@@ -3,6 +3,7 @@ import { ChatProvider } from '@/lib/chat-context'
 import { CommandLogsStream } from '@/components/commands-logs/commands-logs-stream'
 import { ErrorMonitor } from '@/components/error-monitor/error-monitor'
 import { SandboxState } from '@/components/modals/sandbox-state'
+import { DecisionModal } from '@/components/modals/decision-modal'
 import { Toaster } from '@/components/ui/sonner'
 import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
@@ -48,6 +49,7 @@ export default function RootLayout({
         <Toaster />
         <CommandLogsStream />
         <SandboxState />
+        <DecisionModal />
       </body>
     </html>
   )

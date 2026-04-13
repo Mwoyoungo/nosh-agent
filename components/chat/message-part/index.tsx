@@ -6,6 +6,7 @@ import { GenerateFiles } from './generate-files'
 import { CreateSandbox } from './create-sandbox'
 import { GetSandboxURL } from './get-sandbox-url'
 import { RunCommand } from './run-command'
+import { ProjectProposal } from './project-proposal'
 import { ReportErrors } from './report-errors'
 import { Reasoning } from './reasoning'
 import { Text } from './text'
@@ -32,6 +33,8 @@ export const MessagePart = memo(function MessagePart({
     return <Reasoning part={part} partIndex={partIndex} />
   } else if (part.type === 'data-report-errors') {
     return <ReportErrors message={part.data} />
+  } else if (part.type === 'data-project-proposal' as any) {
+    return <ProjectProposal message={part.data} />
   } else if (part.type === 'text') {
     return <Text part={part} />
   }
