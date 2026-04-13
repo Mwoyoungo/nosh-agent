@@ -6,10 +6,12 @@ import { linesSchema, resultSchema } from '@/components/error-monitor/schemas'
 import prompt from './prompt.md'
 
 export async function POST(req: Request) {
+  /*
   const checkResult = await checkBotId()
   if (checkResult.isBot) {
     return NextResponse.json({ error: `Bot detected` }, { status: 403 })
   }
+  */
 
   const body = await req.json()
   const parsedBody = linesSchema.safeParse(body)

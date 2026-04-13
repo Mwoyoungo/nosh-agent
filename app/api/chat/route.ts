@@ -20,12 +20,7 @@ interface BodyData {
 }
 
 export async function POST(req: Request) {
-  const [checkResult, { messages, modelId = DEFAULT_MODEL, reasoningEffort }] =
-    await Promise.all([checkBotId(), req.json() as Promise<BodyData>])
-
-  if (checkResult.isBot) {
-    return NextResponse.json({ error: `Bot detected` }, { status: 403 })
-  }
+  const { messages, modelId = DEFAULT_MODEL, reasoningEffort } = await req.json() as BodyData
 
   if (!SUPPORTED_MODELS.includes(modelId)) {
     return NextResponse.json(
