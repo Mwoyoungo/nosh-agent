@@ -9,7 +9,6 @@ import {
 import { DEFAULT_MODEL, MODEL_NAMES, SUPPORTED_MODELS } from '@/ai/constants'
 import { NextResponse } from 'next/server'
 import { getModelOptions } from '@/ai/gateway'
-import { checkBotId } from 'botid/server'
 import { tools } from '@/ai/tools'
 import prompt from './prompt.md'
 

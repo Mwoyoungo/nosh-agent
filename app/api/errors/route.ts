@@ -1,6 +1,5 @@
 import { Models } from '@/ai/constants'
 import { NextResponse } from 'next/server'
-import { checkBotId } from 'botid/server'
 import { generateText, Output } from 'ai'
 import { linesSchema, resultSchema } from '@/components/error-monitor/schemas'
 import prompt from './prompt.md'

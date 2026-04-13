@@ -1,10 +1,1 @@
-import { initBotId } from 'botid/client/core'
-
-initBotId({
-  protect: [
-    {
-      path: '/api/chat',
-      method: 'POST',
-    },
-  ],
-})
+// botid removed — challenge endpoint not available outside Vercel's botid infrastructure
